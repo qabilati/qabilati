@@ -1,0 +1,59 @@
+<ion-view hide-back-button="true" text-center view-title="{{'APP_NAME' | translate }}" >
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+<ion-content>
+<!-- 
+<div ng-switch on="adminData">
+    <div ng-switch-when="true">No Admin yet Pay $5 to become Admin</div>
+    <div ng-switch-default>No Admin yet Pay $5 to become Admin</div>
+</div>
+
+<div ng-show="adminData">Secret data</div>
+
+<div ng-show="name == '55'">Some data</div>
+<div ng-show="Display()">Some data</div> -->
+
+<div class="row">
+	<h1 class="sub-title_become_admin">{{'FAMILY_BECOME_ADMIN' | translate }}</h1>
+</div>
+<div style="text-align: center;">
+
+<div ng-if="status == 2">
+<span>{{'BECOME_ADMIN_INFO' | translate }}</span>
+</div>
+
+<div ng-if="status == 1">
+<span ng-model="m" ng-bind="adminFirstname"></span> {{'FAMILY_BECOME_ADMIN_INFO' | translate }} 
+<span ng-model="m" ng-bind="adminAmount"></span>
+{{'FAMILY_BECOME_ADMIN_INFO2' | translate }} 
+</div>
+</div>
+
+		<form name="admin_form"  ng-submit="doBecomeAdmin()" novalidate=""> 
+				<div class="col">
+					<label class="item item-input item-stacked-label">
+						<span class="input-label frmLabel">Payment Amount (USD) </span>
+						<input type="tel" name="paymentAmount" placeholder="Payment Amount" ng-model="adminData.paymentAmount" ng-required="true">
+						<div ng-show="admin_form.$submitted || admin_form.paymentAmount.$touched">
+							<p ng-show="admin_form.paymentAmount.$invalid && !admin_form.paymentAmount.$pristine || admin_form.paymentAmount.$error.required" class="spValid1">Payment Amount Required</p>
+						</div>
+					</label>
+				</div>
+
+			<ion-list>
+				<h5 class="fn_h5"><input type="checkbox" class="checkbtn"> {{'TERMS_AND_CONDITIONS' | translate }}</h5>
+					
+				</ion-list>
+
+				<div class="loginPgBtn">
+					<button class="button button-assertive submitBtn">
+					{{'PAY_BTN' | translate }}
+					</button>
+				</div>
+			</div>
+		</form>	
+
+</ion-content>
+</ion-view> 

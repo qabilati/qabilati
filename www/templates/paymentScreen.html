@@ -1,0 +1,36 @@
+<ion-view hide-back-button="true" text-center view-title="{{'APP_NAME' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+	<ion-header-bar class="bar-assertive"><h2 class="header-title">{{'APP_NAME' | translate }}</h2></ion-header-bar>
+	<ion-content scroll="true">
+
+		<div class="row">
+			<h2 class="add_node">{{'GET_CONTACT_DETAILS' | translate }}</h2>
+		</div>
+
+		<div class="add_node_content">
+			<p >{{'GET_BUNDLE_INFO' | translate }}</p>
+		</div>
+
+		<form name="payment_form"  ng-submit="loadImage()" novalidate=""> 
+			<div class="list">
+
+				<ion-list>
+				<!-- <h5 class="fn_h5"><input type="checkbox" class="checkbtn"> {{'TERMS_AND_CONDITIONS' | translate }}</h5> -->
+					<!-- <ion-checkbox name="agree" ng-model="paymentData.agree">I have read and agree to the Terms and Conditions</ion-checkbox> -->
+				</ion-list>
+
+				<div class="loginPgBtn">
+					<button class="button button-assertive submitBtn">
+					{{'PAY_BTN' | translate }}
+					</button>
+				</div>
+
+			</div>
+
+		</form>
+
+	</ion-content>
+</ion-view>

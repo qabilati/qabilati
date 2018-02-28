@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' https://www.googleapis.com https://graph.facebook.com 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://www.googleapis.com https://graph.facebook.com"> -->
+	<title></title>
+   
+    <link rel="manifest" href="manifest.json">
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/timeline.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
+   
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.min.js"></script>
+    <script src="js/sha/sha1.js"></script>
+    <!-- <script src="js/sha/sha.js"></script>
+    <script src="js/sha/sha3.js"></script>
+    <script src="js/sha/sha256.js"></script>
+    <script src="js/sha/sha512.js"></script> -->
+    <script src="cordova.js"></script>
+    <script src="lib/angular-translate/angular-translate.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="js/ng-cordova.js"></script> -->
+    <script src="lib/bluebird.min.js"></script>
+    <script src="lib/ionic.cloud.min.js"></script>
+    <script src="js/paypal-mobile-js-helper.js"></script>
+    <!-- <script src="ngDraggable.js"></script> -->
+    <script src="lib/d3.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="lib/autocomplete/clan.directive.js"></script>
+
+    <!-- <script src="lib/autocomplete/family.directive.js"></script> -->
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/profileController.js"></script>
+    <script src="js/storyController.js"></script>
+    <script src="js/aboutUsController.js"></script>
+    <script src="js/addNodeController.js"></script>
+    <script src="js/eventController.js"></script>
+    <script src="js/familyTreeController.js"></script>
+    <script src="js/editTreeController.js"></script>
+    <script src="js/nodeController.js"></script>
+    <script src="js/galleryController.js"></script>
+    <script src="js/payScreenController.js"></script>
+    <script src="js/searchScreenController.js"></script>
+    <script src="js/treeController.js"></script>
+    <script src="js/treeInviteController.js"></script>
+    <script src="js/getInviteController.js"></script>
+    <script src="js/becomeAdminController.js"></script>
+    <script src="js/generationController.js"></script>
+    <script src="js/languageController.js"></script>
+    <script src="js/socialController.js"></script>
+    <script src="js/verticalTreeController.js"></script>
+    <script src="js/contactController.js"></script>
+    <script src="js/inAppController.js"></script>
+    <script src="js/notificationController.js"></script>
+    <script src="js/changeCoverController.js"></script>
+    <script src="js/unlockNodeController.js"></script>
+    <script src="js/ancestryController.js"></script>
+    <script src="js/launchController.js"></script>
+    <script src="js/launchArabicController.js"></script>
+
+    <script src="js/factories/loginFactory.js"></script>
+    <script src="js/factories/signUpFactory.js"></script>
+    <script src="js/factories/lifeStoryFactory.js"></script>
+    <script src="js/factories/nodes.js"></script>
+    <script src="js/factories/forgetPasswordFactory.js"></script>
+    <script src="js/factories/localStorageFactory.js"></script>
+    <script src="js/factories/aboutUsFactory.js"></script>
+    <script src="js/factories/eventFactory.js"></script>
+    <script src="js/factories/editTreeFactory.js"></script>
+    <script src="js/factories/galleryFactory.js"></script>
+    <script src="js/directives/CommonDirectives.js"></script>
+    <script src="js/factories/deleteTreeFactory.js"></script>
+    <script src="js/factories/searchScreenFactory.js"></script>
+    <script src="js/factories/treeInviteFactory.js"></script>
+    <script src="js/factories/getInviteFactory.js"></script>
+    <script src="js/factories/getContactFactory.js"></script>
+    <script src="js/factories/becomeAdminFactory.js"></script>
+    <script src="js/factories/payPalFactory.js"></script>
+    <script src="js/factories/tree.js"></script>
+    <script src="js/factories/verticalTreeFactory.js"></script>
+    <script src="js/factories/languageFactory.js"></script>
+    <script src="js/language/languagetext.js"></script>
+    <script src="js/factories/paymentFactory.js"></script>
+    <script src="js/factories/commonFactory.js"></script>
+    <script src="js/factories/inAppPurchaseFactory.js"></script>
+    <script src="js/factories/notificationFactory.js"></script>
+    <script src="js/factories/changeCoverFactory.js"></script>
+   
+    <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
+    <link href="lib/ion-datetime-picker/release/ion-datetime-picker.min.css" rel="stylesheet">
+    <link href="lib/ion-floating-menu/dist/ion-floating-menu.css" rel="stylesheet" type="text/css"/>
+    <script src="lib/ion-floating-menu/dist/ion-floating-menu.js" type="text/javascript"></script>
+  </head>
+
+  <body ng-app="starter">
+    <ion-nav-view class="maincontent"></ion-nav-view>
+  </body>
+</html>

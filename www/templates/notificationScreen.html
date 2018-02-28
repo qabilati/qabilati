@@ -1,0 +1,20 @@
+<ion-view hide-back-button="true" text-center view-title="{{'NOTIFICATION_LIST' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+    
+</ion-nav-buttons>
+
+	<ion-content class="item-text-wrap">
+		<div class="list" ng-if="hidenoti">
+			<a class="item item-thumbnail-left searchlist" name="userList" ng-model="searchData.userList" ng-repeat="n in searchData" ng-click="openNoti({{n.nodeID}},{{n.NotiID}},{{n.Noti_viewed}})">
+				<img src="{{n.photo}}">
+				<h2>{{n.name}}</h2>
+				<p>{{n.NotiDate}}</p>
+               <!--  <p>{{n.Noti_viewed}}</p> -->
+				<p>[ {{'PAYMENT_MSG' | translate }} ]</p>
+			</a>
+		</div>
+		<p ng-hide="searchData.length" class="emptymsg">{{'No_Notification' | translate }}</p>
+	</ion-content>
+</ion-view>

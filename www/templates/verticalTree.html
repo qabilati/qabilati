@@ -1,0 +1,19 @@
+<ion-view hide-back-button="true" view-title="{{'APP_NAME' | translate }}">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="scroll-content ionic-scroll">
+  <ion-scroll zooming="true" direction="xy" delegate-handle="zoom-pane" class="zoom-pane" min-zoom="0.2"                   scrollbar-x="false" scrollbar-y="false" overflow-scroll="false">  
+    <div class="tree undefinedgen" style="margin-top: 60px;">
+		<ul>      
+			<li itemscope="" itemtype="" class="with-spouse">
+				<ol class="ol-border" ng-bind-html="trustAsHtml(TreeView)" id="tree-render">
+        </ol>
+			</li>    
+		</ul>
+	</div>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

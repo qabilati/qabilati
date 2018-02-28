@@ -1,0 +1,45 @@
+angular.module('family.directive', [])
+
+.directive('ionicAutocomplete1',
+    function ($ionicPopover) {
+        var popoverTemplate = 
+         '<ion-popover-view style="margin-top:5px;height: 160px;">' + 
+             '<ion-content>' +
+                 '<div class="list">' +
+                    '<a class="item" ng-repeat="item in items | filter:inputSearch" ng-click="selectItem(item)">{{item.clan}}</a>' +
+                 '</div>' +
+             '</ion-content>' +
+         '</ion-popover-view>';
+        return {
+            restrict: 'A',
+            scope: {
+                params: '=ionicAutocomplete1',
+                inputSearch: '=ngModel'
+            },
+            link: function ($scope, $element, $attrs) {
+                var popoverShown = false;
+                var popover = null;
+                $scope.items = $scope.params.items;
+
+                //Add autocorrect="off" so the 'change' event is detected when user tap the keyboard
+                $element.attr('autocorrect', 'off');
+
+
+                popover = $ionicPopover.fromTemplate(popoverTemplate, {
+                    scope: $scope
+                });
+                $element.on('focus', function (e) {
+                    if (!popoverShown) {
+                        popover.show(e);
+                    }
+                });
+
+                $scope.selectItem = function (item) {
+                    $element.val(item.clan);
+                    popover.hide();
+                    $scope.params.onSelect(item);
+                };
+            }
+        };
+    }
+);

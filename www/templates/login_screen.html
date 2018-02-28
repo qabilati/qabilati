@@ -1,0 +1,47 @@
+<ion-view class="bg-img" text-center view-title="{{'LOGIN_HEADER' | translate }}" >
+<ion-content>
+	<div class="cpad">
+	<div class="item item-image bgIcon">
+            <img src="img/logos.png"/>
+		</div>
+	<form name="loginForm" ng-submit="doLogin()">
+    	<div class="username">
+        	<input type="email" name='username' placeholder="{{'EMAIL' | translate }}" ng-model='loginData.username' ng-required="true" required>
+        	<div ng-show="loginForm.username.$submitted || loginForm.username.$touched">
+				<p ng-show="loginForm.username.$invalid && !loginForm.username.$pristine ||
+						loginForm.username.$error.required" class="passerrorlogin">{{'EMAIL_REQUIRED' | translate }}</p>
+			</div>
+        </div>
+        <div class="username">
+        	<input type="password" name='pass' placeholder="{{'PASSWORD' | translate }}" ng-model='loginData.pass' 
+		ng-required="true" ng-minlength="6" ng-maxlength="15" maxlength="15" ng-show="!showpassword" ionic-password-show-hide required/>
+        </div>
+        <div ng-show="loginForm.$submitted || loginForm.pass.$touched">
+            <p ng-show="loginForm.pass.$error.required" class="passerrorlogin">{{'PASSWORD_REQUIRED' | translate }}</p>
+        </div>
+   
+    <div class="signupbtdiv">
+		<button class="login-bt">{{'LOGIN' | translate }}</button>
+	</div>
+    <div class="forgotpass">
+		<a href="javascript:void(0)" ng-click="forgotpassword()">{{'FORGET_PASSWORD' | translate }}?</a> 
+	</div>
+    <div class="note">
+      	<!--<p>Dont have an account? Sign up today!</p>-->
+        <p>{{'NOT_A_REGISTERED_USER' | translate }} </p>
+   	</div> 
+    <div class="signupbtdiv">
+		<a href="#/signup/" class="button button-block signup-bt">{{'SIGN_UP' | translate }}</a>
+	</div>
+     </form>
+    <div class="socialLoginBtns">
+		<h2><span>{{'YOU_CAN_ALSO_LOGIN_WITH' | translate }}</span></h2>
+	</div>
+	<div class="loginPgRow socialLogins">
+		<img src="img/facebook.png" class="loginImg" ng-click="LoginwithFacebook('facebook')"/>
+		<img src="img/twitter.png" class="loginImg" ng-click="LoginwithTwitter('twitter')"/>
+		<img src="img/instagram.png" class="loginImg" ng-click="LoginwithInstagram('instagram')"/>
+	</div>
+</div>
+</ion-content>
+</ion-view>

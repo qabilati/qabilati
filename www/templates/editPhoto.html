@@ -1,0 +1,87 @@
+<ion-view hide-back-button="true" view-title="{{'APP_NAME' | translate }}">
+<!-- <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons> -->
+<ion-header-bar class="bar-assertive"><h2 class="header-title">{{'APP_NAME' | translate }}</h2>
+<button class="button button-clear" ng-click="home()">{{'OK_CONSTANT' | translate }}</button>
+</ion-header-bar>
+
+
+
+	<!-- <div class="bar bar-header bar-positive">
+		<button class="button button-clear icon ion-android-close"></button>
+		<h1 class="title">Add Media</h1>
+		<button class="button button-clear">SAVE</button>
+	</div> -->
+	<ion-content class="scroll-content ionic-scroll has-header">
+		<!-- <div class="row">
+			<h2 class="signup-sub-title">{{'ADD_PHOTO' | translate }}</h2>
+		</div> -->
+
+		<form name="edit_gallery_image_form" ng-submit="doEditGalleryImageUpload()">
+
+			<img src="{{editGalleryData.profilepic}}" style="width:300px; height: auto; margin: 10px" name="profilepic" ng-model="editGalleryData.profilepic">
+
+			<input type="hidden" name="profilepic" ng-model="editGalleryData.profilepic" ng-required="true" ng-readonly='true'/>
+
+			<div ng-show="edit_gallery_image_form.$submitted || edit_gallery_image_form.profilepic.$touched" class="spValid">
+				<p ng-show="edit_gallery_image_form.profilepic.$invalid ||
+					edit_gallery_image_form.profilepic.$error.required" class="spValid1">
+					{{'PROFILE_PIC_REQUIRED' | translate }}		
+				</p>	
+			</div>
+
+			<div>
+				<label class="item item-input item-floating-label">
+					<span class="input-label frmLabel">{{'TITLE' | translate }}</span>
+					<input type="text" name="title" placeholder="{{'TITLE' | translate }}" ng-model="editGalleryData.title" ng-readonly='true'/>
+					<!-- <div ng-show="gallery_image_form.$submitted || gallery_image_form.title.$touched"> -->
+						<p ng-show="edit_gallery_image_form.title.$invalid && !edit_gallery_image_form.title.$pristine || edit_gallery_image_form.title.$error.required" class="spValid1">{{'TITLE_REQUIRED' | translate }}</p>
+					<!-- </div> -->
+				</label>
+			</div>
+
+			<div>
+				<label class="item item-input item-floating-label" >
+					<span class="input-label frmLabel">{{'DATE' | translate }}</span>
+					<div ng-model="editGalleryData.Date">
+						<input type="text" ng-model="editGalleryData.Date" 
+						placeholder="{{'DATE' | translate }}" name="Date" value='{{editGalleryData.Date| date: "yyyy-MM-dd"}}' id="Date" ng-readonly='true'>
+					</div>		
+					<!-- <div ng-show="gallery_image_form.$submitted || gallery_image_form.Date.$touched"> -->
+						<p ng-show="edit_gallery_image_form.Date.$invalid && !edit_gallery_image_form.Date.$pristine ||
+							edit_gallery_image_form.Date.$error.required" class="spValid1">{{'DATE_REQUIRED' | translate }}</p>	
+					<!-- </div> -->					
+				</label>
+			</div>
+
+		<div>
+			<label class="item item-input item-floating-label">
+					<span class="input-label frmLabel">{{'LOCATION' | translate }}</span>
+					<input type="text" name="location" placeholder="{{'LOCATION' | translate }}" ng-model="editGalleryData.location" ng-readonly='true'/>
+					<!-- <div ng-show="gallery_image_form.$submitted || gallery_image_form.location.$touched"> -->
+						<p ng-show="edit_gallery_image_form.location.$invalid && !edit_gallery_image_form.location.$pristine || edit_gallery_image_form.location.$error.required" class="spValid1">{{'LOCATION_REQUIRED' | translate }}</p>
+					<!-- </div> -->
+				</label>
+		</div>
+				
+		<div>
+			<label class="item item-input item-floating-label">
+				<span class="input-label frmLabel">{{'DESCRIPTION' | translate }}</span>
+				<input type="text" name="description" placeholder="{{'DESCRIPTION' | translate }}" ng-model="editGalleryData.description">
+				<!-- <div ng-show="gallery_image_form.$submitted || gallery_image_form.description.$touched"> -->
+				<p ng-show="edit_gallery_image_form.description.$invalid && !edit_gallery_image_form.description.$pristine || edit_gallery_image_form.description.$error.required" class="spValid1">{{'DESCRIPTION_REQUIRED' | translate }}</p>
+				<!-- </div> -->
+			</label>
+		</div>
+
+		<!-- <div class="loginPgBtn">
+			<button class="button button-assertive submitBtn" ng-click="uploadImage()" ng-mousedown='false'>
+				{{'SAVE_BTN' | translate }}
+			</button>
+		</div> -->
+	</div>
+	</form>	
+	</ion-content>
+</ion-view>

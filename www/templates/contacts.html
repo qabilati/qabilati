@@ -1,0 +1,75 @@
+<ion-view hide-back-button="true" text-center view-title="{{'APP_NAME' | translate }}">
+<!-- <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons> -->
+<ion-header-bar class="bar-assertive">
+<!-- <img src="img/multiply.png" class="crossImg" ng-click="cancelbtn()" /> -->
+<h2 class="header-title" >{{'APP_NAME' | translate }}</h2>
+<a ng-click="cancelbtn()" class="crossImg">DONE</a>
+</ion-header-bar>
+<ion-content>
+
+<div class="row">
+		<h2 class="sub-title">{{'CONTACTS' | translate }}</h2>
+</div>
+<form name="get_contact_form" novalidate="">
+  <div class="list">
+    <div class="col">
+      <label class="item item-input item-floating-label">
+        <span class="input-label frmLabel">{{'FIRST_NAME' | translate }}</span>
+        <input type="text" placeholder="{{'FIRST_NAME' | translate }}" name="firstname" ng-model="getContactData.firstname" ng-readonly='true'>
+      </label>
+    </div>
+
+    <div class="col">
+      <label class="item item-input item-floating-label">
+        <span class="input-label frmLabel">{{'LAST_NAME' | translate }}</span>
+        <input type="text" placeholder="{{'LAST_NAME' | translate }}" name="lastname" ng-model="getContactData.lastname" ng-readonly='true'>
+      </label>
+    </div>
+
+    <div class="col">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label frmLabel">{{'EMAIL' | translate }}</span>
+        <input type="email" name="email" placeholder="{{'EMAIL' | translate }}" ng-model="getContactData.email" ng-readonly='true'>
+      </label>
+    </div>
+
+    <div class="col">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label frmLabel">{{'ADDRESS' | translate }}</span>
+        <input type="text" name="address" placeholder="{{'ADDRESS' | translate }}" ng-model="getContactData.address" ng-readonly='true'>
+      </label>
+    </div>
+
+    <div class="col">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label frmLabel">{{'PHONE_NUMBER' | translate }}</span>
+        <input type="tel" name="phoneNumber" placeholder="{{'PHONE_NUMBER' | translate }}" ng-model="getContactData.phoneNumber"  ng-readonly='true'>
+
+      </label>        
+    </div>
+
+    <div class="col">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label frmLabel">{{'BIRTH_DATE' | translate }}</span>
+        <input type="tel" name="birthDate" placeholder="{{'BIRTH_DATE' | translate }}" ng-model="getContactData.birthDate"  ng-readonly='true'>
+
+      </label>        
+    </div>
+
+    <div class="col">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label frmLabel">{{'CLAN' | translate }}</span>
+        <input type="text" name="clan" placeholder="{{'CLAN' | translate }}" ng-model="getContactData.clan"  ng-readonly='true'>
+
+      </label>        
+    </div>
+
+  </div>
+</form> 
+
+
+</ion-content>
+</ion-view> 

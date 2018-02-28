@@ -1,0 +1,79 @@
+<ion-view hide-back-button="true" text-center view-title="Contact US">
+<!-- <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons> -->
+<ion-header-bar class="bar-assertive">
+<h2 class="header-title">{{'CONTACT_US' | translate }}</h2>
+<a ng-click="cancelbtn()" class="crossImg">{{'CANCEL' | translate }}</a>
+</ion-header-bar>
+<ion-content scroll="true">
+
+<form name="contact_form" ng-submit="contact_form.$valid && ContactUSData()" novalidate=""> 
+  <div class="list">
+
+    <div class="col">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label frmLabel">{{'FIRST_NAME' | translate }}</span>
+        <input type="text" name="firstname" placeholder="{{'FIRST_NAME' | translate }}" ng-required="true" ng-model="contactData.firstname" >
+        <div ng-show="contact_form.$submitted || contact_form.firstname.$touched">
+          <p ng-show="contact_form.firstname.$invalid && !contact_form.firstname.$pristine || contact_form.firstname.$error.required" class="spValid1">{{'FIRST_NAME_REQUIRED' | translate }}</p>
+        </div>
+      </label>
+    </div>
+    
+    <div class="col">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label frmLabel">{{'LAST_NAME' | translate }}</span>
+        <input type="text" name="lastname" placeholder="{{'LAST_NAME' | translate }}" ng-model="contactData.lastname" ng-required="true">
+        <div ng-show="contact_form.$submitted || contact_form.lastname.$touched">
+          <p ng-show="contact_form.lastname.$invalid && !contact_form.lastname.$pristine || contact_form.lastname.$error.required" class="spValid1">{{'LAST_NAME_REQUIRED' | translate }}</p>
+        </div>
+      </label>        
+    </div>
+
+    <div class="col">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label frmLabel">{{'EMAIL' | translate }}</span>
+        <input type="email" name="email" placeholder="{{'EMAIL' | translate }}" ng-model="contactData.email" ng-required="true">
+        <div ng-show="contact_form.$submitted || contact_form.email.$touched">
+          <p ng-show="contact_form.email.$viewValue=='' && !contact_form.email.$pristine" class="spValid1">{{'EMAIL_REQUIRED' | translate }}</p>
+
+          <p ng-show="contact_form.email.$viewValue!='' && contact_form.email.$invalid && !contact_form.email.$pristine" class="spValid1">{{'ENTER_CORRECT_EMAIL' | translate }}</p>
+        </div>
+      </label>
+    </div>
+
+    <div class="col">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label frmLabel">{{'PHONE_NUMBER' | translate }}</span>
+        <input type="tel" name="phone" placeholder="{{'PHONE_NUMBER' | translate }}" ng-model="contactData.phone" ng-pattern="/^[0-9-+]+$/">
+        <!-- <div ng-show="contact_form.$submitted || contact_form.phone.$touched"> -->
+          <p ng-show="contact_form.phone.$invalid && !contact_form.phone.$pristine" class="spValid1">{{'PHONE_INVALID' | translate }}</p>
+          <!-- <p ng-show="contact_form.phone.$error.minlength || contact_form.phone.$error.maxlength" class="spValid1">{{'PHONE_NUMBER_LENGTH' | translate }}</p> -->
+        <!-- </div> -->
+        
+        <!-- <p ng-show="contact_form.phone.$error.maxlength" class="spValid1">10 digits required</p> -->
+      </label>        
+    </div>
+
+    <div class="col">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label frmLabel">{{'Message_text' | translate }}</span>
+        <input type="text" name="Message" placeholder="{{'Message_text' | translate }}" ng-model="contactData.Message" ng-required="true">
+        <div ng-show="contact_form.$submitted || contact_form.Message.$touched">
+          <p ng-show="contact_form.Message.$invalid && !contact_form.Message.$pristine || contact_form.Message.$error.required" class="spValid1">{{'Message_REQUIRED' | translate }}</p>
+        </div>
+      </label>        
+    </div>
+     
+  </div>
+
+  <div class="loginPgBtn">
+    <button ng-disabled='contact_form.$invalid' class="button button-assertive submitBtn">
+      {{'SAVE_BTN' | translate }}
+    </button>
+  </div>
+</form>
+</ion-content>
+</ion-view>

@@ -1,0 +1,18 @@
+<ion-popover-view style="background:none; box-shadow: none; height: auto;">
+  <ion-content style="overflow: inherit;">
+    <div class="list">
+      <!-- <a class="item" ng-click="changeCover()">
+         <img class="menu-ico" src="img/edit.png" style="width:32px;" /><span class="rightdrawer">{{'Change_Cover_Image' | translate }}</span>
+      </a> -->
+      <a class="item" ng-click="editnode()">
+         <img class="menu-ico" src="img/edit.png" style="width:32px;" /><span class="rightdrawer">{{'EDIT_TREE' | translate }}</span>
+      </a>
+      <a class="item" ng-click="viewTree()">
+         <img class="menu-ico" src="img/view-tree.png" style="width:32px;" /><span class="rightdrawer">{{'VIEW_TREE' | translate }}</span>
+      </a>
+      <a class="item" ng-click="deletenode()" ng-if="hide_home_delete">
+         <img class="menu-ico" src="img/delete.png" style="width:32px;" /><span class="rightdrawer">{{'DELETE_TREE' | translate }}</span>
+      </a>
+    </div>
+  </ion-content>
+</ion-popover-view>

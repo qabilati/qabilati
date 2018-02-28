@@ -1,0 +1,22 @@
+<ion-view hide-back-button="true" text-center view-title="{{'HOW_TO_USE' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+<ion-content scroll="true" class="text-capitalize holder">
+	<div class="item item-image bgIcon bgIcon2">
+            <img src="img/Qabilati-About-image.png"/>
+	</div>
+  <div class="getInvitebtn">
+    <button class="button button-assertive submitBtn" ng-click="viewTutorial()">{{'View_Tutorial' | translate }}</button>
+  </div>
+  	<!-- <div class="sub-title">
+  		{{howToUseData.title}}
+  	</div> -->
+  	<div class="clear"></div>
+  	<div class="content-description padding" ng-bind-html="howToUseData.description">
+  	</div>
+  </ion-content>
+</ion-view> 
+
+  

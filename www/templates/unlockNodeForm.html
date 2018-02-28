@@ -1,0 +1,37 @@
+<ion-view hide-back-button="true" view-title="{{'APP_NAME' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+  <ion-content class="padding">
+        <h5 class="inapp-signup-sub-title">{{'Products' | translate }}</h5>
+        <div ng-if="payType == 1">
+          <button ng-click="doPayment(5)" class="inapp-sub-title">
+            {{'Tribe_Bundle' | translate }} - $5
+          </button>
+          <button ng-click="doPayment(10)" class="inapp-sub-title">
+            {{'Clan_Bundle' | translate }} - $10
+          </button>
+          <button ng-click="doPayment(20)" class="inapp-sub-title">
+            {{'Folk_Bundle' | translate }} - $20
+          </button>
+          <button ng-click="doPayment(50)" class="inapp-sub-title">
+            {{'Qabilati_Bundle' | translate }} - $50
+          </button>
+        </div>
+        <div ng-if="payType == 2">
+          <button ng-show="!products" ng-click="loadProducts()" class="button button-block button-balanced">
+            <i class="ion-arrow-down-c"></i>{{'Load_Products' | translate }}
+          </button>
+          <button ng-repeat="product in products" ng-click="buy(product.productId)" class="inapp-sub-title">
+            {{product.title}} - {{product.price}}
+          </button>
+        </div>
+
+
+        <!-- <h3>Restore Purchases</h3>
+        <button ng-click="restore()" class="button button-block button-balanced">
+          <i class="ion-refresh"></i> Restore
+        </button> -->
+  </ion-content>
+</ion-view>

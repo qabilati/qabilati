@@ -1,0 +1,77 @@
+<ion-view hide-back-button="true" text-center view-title="{{'APP_NAME' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+
+	<ion-header-bar class="bar-assertive">
+		<h2 class="header-title">{{'APP_NAME' | translate }}</h2>
+	</ion-header-bar>
+	<ion-content scroll="true">
+
+		<div class="row">
+			<h2 class="signup-sub-title">{{'ADD_STORY' | translate }}</h2>
+		</div>
+
+		<form name="addstory_form" ng-submit="addstory_form.$valid && doAddStory()" novalidate=""> 
+		    <div class="list">
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">{{'STORY_TITLE' | translate }}</span>
+							<input type="text" name="title" placeholder="{{'STORY_TITLE' | translate }}" ng-model="profileData.title" ng-required="true">
+							<div ng-show="addstory_form.$submitted || addstory_form.title.$touched">
+								 <p ng-show="addstory_form.title.$error.required" class="spValid1">{{'STORY_TITLE_REQUIRED' | translate }}</p>
+							</div>
+						</label>
+					</div>
+		        </div>
+
+		        <div class="row">
+					<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">{{'STORY_DESCRIPTION' | translate }}</span>
+							<input type="text" name="description" placeholder="{{'STORY_DESCRIPTION' | translate }}" ng-model="profileData.description" ng-required="true">
+							<div ng-show="addstory_form.$submitted || addstory_form.description.$touched">
+								<p ng-show="addstory_form.description.$error.required" class="spValid1">{{'STORY_DESCRIPTION_REQUIRED' | translate }}</p>
+							</div>
+						</label>
+					</div>
+		        </div>
+
+		        <div class="row">
+					<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">{{'STORY_LOCATION' | translate }}</span>
+							<input type="text" name="location" placeholder="{{'STORY_LOCATION' | translate }}" ng-model="profileData.location" ng-required="true">
+							<div ng-show="addstory_form.$submitted || addstory_form.location.$touched">
+								<p ng-show="addstory_form.location.$error.required" class="spValid1">{{'STORY_LOCATION_REQUIRED' | translate }}</p>
+							</div>	
+						</label>
+					</div>
+		        </div>
+
+		        <div class="row">
+		        	<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">{{'STORY_DATE' | translate }}</span>
+							<div ng-change="dateOnChange()" ion-datetime-picker date ng-model="profileData.datetimeValue" only-valid="{'before': 'today'}">
+								<input type="text" ng-model="profileData.stodyDate" placeholder="{{'STORY_DATE' | translate }}" name="stodyDate" value='{{profileData.datetimeValue| date: "yyyy-MM-dd"}}' id="stodyDate" ng-readonly='true' ng-required="true"  />
+							</div>
+							<div ng-show="addstory_form.$submitted || addstory_form.stodyDate.$touched">
+								 <p ng-show="addstory_form.stodyDate.$error.required" class="spValid1">{{'STORY_DATE_REQUIRED' | translate }}</p>
+							</div>	
+						</label>
+					</div>
+				</div>
+		    </div>
+			
+			<div class="loginPgBtn">
+				<button class="button button-assertive submitBtn">
+					{{'ADD_STORY' | translate }}
+				</button>
+			</div>
+		</form>
+
+	</ion-content>
+</ion-view>

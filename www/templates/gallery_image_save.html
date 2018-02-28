@@ -1,0 +1,92 @@
+<ion-view hide-back-button="true" view-title="{{'APP_NAME' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+<ion-header-bar class="bar-assertive"><h2 class="header-title">{{'APP_NAME' | translate }}</h2>
+</ion-header-bar>
+
+
+
+	<!-- <div class="bar bar-header bar-positive">
+		<button class="button button-clear icon ion-android-close"></button>
+		<h1 class="title">Add Media</h1>
+		<button class="button button-clear">SAVE</button>
+	</div> -->
+	<ion-content class="scroll-content ionic-scroll has-header">
+		<div class="row">
+			<h2 class="addPhoto">{{'ADD_PHOTO' | translate }}</h2>
+		</div>
+
+		<form name="gallery_image_form" ng-submit="doGalleryImageUpload()">
+
+		<div>
+			<div ng-if="imageNewPath != ''" style="text-align: center;">
+				<img style="width: 300px; height: 300px;"  src="{{imageNewPath}}" class="imgDisplay">
+			</div>
+
+			<span class="button icon-left ion-camera browse-button frmLabel" ng-click="loadImage()">{{'ADD_IMAGE' | translate }}</span>
+
+			<input type="hidden" value="{{pathForImageNew(image)}}" name="profilepic" ng-model="galleryData.profilepic" ng-required="true"/>
+		</div>	
+
+			<div ng-show="gallery_image_form.$submitted || gallery_image_form.profilepic.$touched" class="spValid">
+				<p ng-show="gallery_image_form.profilepic.$invalid ||
+					gallery_image_form.profilepic.$error.required" class="spValid1">
+					{{'PROFILE_PIC_REQUIRED' | translate }}		
+				</p>	
+			</div>
+
+			<div>
+				<label class="item item-input item-floating-label">
+					<span class="input-label frmLabel">{{'TITLE' | translate }}</span>
+					<input type="text" name="title" placeholder="{{'TITLE' | translate }}" ng-model="galleryData.title">
+					<!-- <div ng-show="gallery_image_form.$submitted || gallery_image_form.title.$touched"> -->
+						<p ng-show="gallery_image_form.title.$invalid && !gallery_image_form.title.$pristine || gallery_image_form.title.$error.required" class="spValid1">{{'TITLE_REQUIRED' | translate }}</p>
+					<!-- </div> -->
+				</label>
+			</div>
+
+			<div>
+				<label class="item item-input item-floating-label" >
+					<span class="input-label frmLabel">{{'DATE' | translate }}</span>
+					<div ng-change="dateOnChange()" ion-datetime-picker date ng-model="galleryData.Date" only-valid="{'before': 'today'}">
+						<input type="text" ng-model="galleryData.Date" 
+						placeholder="{{'DATE' | translate }}" name="Date" value='{{galleryData.Date| date: "yyyy-MM-dd"}}' id="Date" ng-readonly='true'>
+					</div>		
+					<!-- <div ng-show="gallery_image_form.$submitted || gallery_image_form.Date.$touched"> -->
+						<p ng-show="gallery_image_form.Date.$invalid && !gallery_image_form.Date.$pristine ||
+							gallery_image_form.Date.$error.required" class="spValid1">{{'DATE_REQUIRED' | translate }}</p>	
+					<!-- </div> -->					
+				</label>
+			</div>
+
+		<div>
+			<label class="item item-input item-floating-label">
+					<span class="input-label frmLabel">{{'LOCATION' | translate }}</span>
+					<input type="text" name="location" placeholder="{{'LOCATION' | translate }}" ng-model="galleryData.location">
+					<!-- <div ng-show="gallery_image_form.$submitted || gallery_image_form.location.$touched"> -->
+						<p ng-show="gallery_image_form.location.$invalid && !gallery_image_form.location.$pristine || gallery_image_form.location.$error.required" class="spValid1">{{'LOCATION_REQUIRED' | translate }}</p>
+					<!-- </div> -->
+				</label>
+		</div>
+				
+		<div>
+			<label class="item item-input item-floating-label">
+				<span class="input-label frmLabel">{{'DESCRIPTION' | translate }}</span>
+				<input type="text" name="description" placeholder="{{'DESCRIPTION' | translate }}" ng-model="galleryData.description">
+				<!-- <div ng-show="gallery_image_form.$submitted || gallery_image_form.description.$touched"> -->
+				<p ng-show="gallery_image_form.description.$invalid && !gallery_image_form.description.$pristine || gallery_image_form.description.$error.required" class="spValid1">{{'DESCRIPTION_REQUIRED' | translate }}</p>
+				<!-- </div> -->
+			</label>
+		</div>
+
+		<div class="loginPgBtn">
+			<button class="button button-assertive submitBtn" ng-click="uploadImage()" ng-mousedown='false'>
+				{{'SAVE_BTN' | translate }}
+			</button>
+		</div>
+	</div>
+	</form>	
+	</ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view hide-back-button="true" text-center view-title="{{'APP_NAME' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+	<ion-header-bar class="bar-assertive"><h2 class="header-title">{{'APP_NAME' | translate }}</h2></ion-header-bar>
+	<ion-content scroll="true">
+
+		<div class="row">
+			<h2 class="add_node">{{'PAY_TO_ADD_FAMILY_TREE_OF_GENERATION' | translate }}</h2>
+		</div>
+
+		<div class="add_node_content">
+			<p >{{'CREATE_NODE_TREE_PAY' | translate }} $2</p>
+		</div>
+
+			<div class="list">
+
+				<div class="loginPgBtn" >
+					<button class="button button-assertive submitBtn" ng-click="openPaypal()">
+					Pay with Paypal
+					</button>
+				</div>
+
+				<!-- <div class="loginPgBtn">
+					<button class="button button-assertive submitBtn">
+					Add to Mobile Bill
+					</button>
+				</div> -->
+
+			</div>
+	</ion-content>
+</ion-view>

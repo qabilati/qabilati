@@ -1,0 +1,254 @@
+<ion-view hide-back-button="true" text-center view-title="{{'APP_NAME' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+<ion-header-bar class="bar-assertive">
+<h2 class="header-title">{{'APP_NAME' | translate }}</h2>
+</ion-header-bar>
+<ion-content scroll="true">
+
+<form name="add_node_form" ng-submit="add_node_form.$valid && setSignUpData()" novalidate=""> 
+    <div class="list">
+		<div class="col">
+			<label class="item item-input item-floating-label" >
+				<span class="input-label frmLabel">{{'FIRST_NAME' | translate }}</span>
+				<input type="text" name="firstname" placeholder="{{'FIRST_NAME' | translate }}" ng-required="true" ng-model="addNodeData.firstname" >
+				<div ng-show="add_node_form.$submitted || add_node_form.firstname.$touched">
+				<p ng-show="add_node_form.firstname.$invalid && !add_node_form.firstname.$pristine || add_node_form.firstname.$error.required" class="spValid1">{{'FIRST_NAME_REQUIRED' | translate }}</p>
+				</div>
+			</label>
+		</div>
+		
+		<div class="col">
+			<label class="item item-input item-floating-label" >
+				<span class="input-label frmLabel">{{'LAST_NAME' | translate }}</span>
+				<input type="text" name="lastname" placeholder="{{'LAST_NAME' | translate }}" ng-model="addNodeData.lastname" ng-required="true">
+				<div ng-show="add_node_form.$submitted || add_node_form.lastname.$touched">
+				<p ng-show="add_node_form.lastname.$invalid && !add_node_form.lastname.$pristine || add_node_form.lastname.$error.required" class="spValid1">{{'LAST_NAME_REQUIRED' | translate }}</p>
+				</div>
+			</label>			  
+		</div>
+
+		<div class="col">
+			<label class="item item-input item-floating-label" >
+				<span class="input-label frmLabel">{{'CLAN' | translate }}</span>
+				<input type="text" name="clan" placeholder="{{'CLAN' | translate }}" ng-model="addNodeData.clan">
+				<!-- <div ng-show="add_node_form.$submitted || add_node_form.clan.$touched"> -->
+				<p ng-show="add_node_form.clan.$invalid && !add_node_form.clan.$pristine || add_node_form.clan.$error.required" 
+				class="spValid1">{{'CLAN_REQUIRED' | translate }}</p>
+				<!-- </div> -->
+			</label>			  
+		</div>
+
+	<div class="col selectRelation">
+		<label class = "item item-input item-select ">
+			<span class="input-label frmLabel ">{{'SELECT_RELATION' | translate }}</span>
+			<select name="relation" ng-model="addNodeData.relation" ng-required="true">
+				<option value="Parents" ng-if="hideRelation">{{'PARENTS' | translate }}</option>
+				<option value="Spouse" >{{'SPOUSE' | translate }}</option>
+				<option value="Sibling" ng-if="hideRelation">{{'SIBLING' | translate }}</option>
+				<option value="Child" >{{'CHILD' | translate }}</option>
+			</select>
+		</label>
+	</div>
+
+		<div class="col">
+			<label class="item item-input item-floating-label" >
+				<span class="input-label frmLabel">{{'EMAIL' | translate }}</span>
+				<input type="email" name="email" placeholder="{{'EMAIL' | translate }}" ng-model="addNodeData.email" ng-required="true" >
+				<div ng-show="add_node_form.$submitted || add_node_form.email.$touched">
+					<p ng-show="add_node_form.email.$invalid && !add_node_form.email.$pristine ||
+						add_node_form.email.$error.required" class="spValid1">{{'ENTER_CORRECT_EMAIL' | translate }}</p>
+				</div>
+			</label>
+		</div>
+
+		<div class="col">
+			<label class="item item-input item-floating-label" >
+				<span class="input-label frmLabel">{{'PHONE_NUMBER' | translate }}</span>
+				<input type="tel" numbers-only name="phone" placeholder="{{'PHONE_NUMBER' | translate }}" ng-model="addNodeData.phone" maxlength="20">
+				<!-- <div ng-show="add_node_form.$submitted || add_node_form.phone.$touched"> -->
+					<p ng-show="add_node_form.phone.$invalid && !add_node_form.phone.$pristine || add_node_form.phone.$error.required" class="spValid1">{{'PHONE_NUMBER_REQUIRED' | translate }}</p>
+					<!-- <p ng-show="add_node_form.phone.$error.minlength || add_node_form.phone.$error.maxlength" class="spValid1">{{'PHONE_NUMBER_LENGTH' | translate }}</p> -->
+				<!-- </div> -->
+				
+				<!-- <p ng-show="add_node_form.phone.$error.maxlength" class="spValid1">10 digits required</p> -->
+			</label>			  
+		</div>
+
+    	<div class="col">
+    		<label class="item item-input item-floating-label" >
+    			<span class="input-label frmLabel">{{'BIRTH_DATE' | translate }}</span>
+    			<div ng-change="dateOnChange()" ion-datetime-picker date ng-model="addNodeData.dateTimeValue" only-valid="{'before': 'today'}">
+    				<input type="text" ng-model="addNodeData.BirthDate" 
+    				placeholder="{{'BIRTH_DATE' | translate }}" name="BirthDate" value='{{addNodeData.dateTimeValue| date: "yyyy-MM-dd"}}' id="BirthDate" ng-readonly='true' ng-required="true">
+    			</div>		
+    			<div ng-show="add_node_form.$submitted || add_node_form.BirthDate.$touched">
+    				<p ng-show="add_node_form.BirthDate.$invalid && !add_node_form.BirthDate.$pristine ||
+    				add_node_form.BirthDate.$error.required" class="spValid1">{{'BIRTH_DATE_REQUIRED' | translate }}</p>	
+    			</div>					
+    		</label>
+    	</div>
+
+    	<div class="col">
+				<label class="item item-input item-stacked-label" >
+					<span class="input-label frmLabel">{{'PLACE_OF_BIRTH' | translate }}</span>
+				</label>			  
+			</div>
+
+			<div>
+			<select class="listofselection" ng-change="getStateBirth(countryDataBirth.country)" value="{{n.country_id}}" name="country" ng-model="countryDataBirth.country" ng-options="countryDataBirth.country_id as countryDataBirth.country_name for countryDataBirth in countryDataBirth" required="true">
+			<option value="">-- {{'SELECT_COUNTRY' | translate }} --</option>
+			</select>
+			<div ng-show="add_node_form.$submitted || add_node_form.country.$touched">
+				<p ng-show="add_node_form.country.$invalid && !add_node_form.country.$pristine ||			add_node_form.country.$error.required" class="spValid">{{'REQUIRED' | translate }}
+				</p>	
+			</div>	
+			</div>
+
+
+			<div>
+			<select class="listofselection" ng-change="getCityBirth(stateDataBirth.state)" value="{{n.state_id}}" name="state" ng-model="stateDataBirth.state" ng-options="stateDataBirth.state_id as stateDataBirth.state for stateDataBirth in stateDataBirth" required="true">
+			<option value="">-- {{'SELECT_STATE' | translate }} --</option>
+			</select>
+			<div ng-show="add_node_form.$submitted || add_node_form.state.$touched">
+				<p ng-show="add_node_form.state.$invalid && !add_node_form.state.$pristine ||			add_node_form.state.$error.required" class="spValid">{{'REQUIRED' | translate }}
+				</p>	
+			</div>	
+			</div>
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CITY TEXTBOX~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<div>
+			<select class="listofselection" ng-change="getCityIDBirth(cityDataBirth.city)" value="{{n.city_id}}" name="city" ng-model="cityDataBirth.city" ng-options="cityDataBirth.city_id as cityDataBirth.city for cityDataBirth in cityDataBirth" required="true">
+			<option value="">-- {{'SELECT_CITY' | translate }} --</option>
+			</select>
+			<div ng-show="add_node_form.$submitted || add_node_form.city.$touched">
+				<p ng-show="add_node_form.city.$invalid && !add_node_form.city.$pristine ||			add_node_form.city.$error.required" class="spValid">{{'REQUIRED' | translate }}
+				</p>	
+			</div>
+			</div>
+			
+			<div class="col" ng-if="form_city_textview_Enable">
+				<label class="item item-input item-floating-label" >
+					<span class="input-label frmLabel">{{'CITY_NAME' | translate }}</span>
+					<input type="text" name="cityname" placeholder="{{'CITY_NAME' | translate }}" ng-model="addNodeData.cityname" ng-required="true">
+					<div ng-show="add_node_form.$submitted || add_node_form.cityname.$touched">
+					<p ng-show="add_node_form.cityname.$invalid && !add_node_form.cityname.$pristine || add_node_form.cityname.$error.required" class="spValid1">{{'CITY_NAME_REQUIRED' | translate }}</p>
+					</div>
+				</label>
+			</div>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~END  CITY TEXTBOX~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<div class="col">
+			<label class="item item-input item-stacked-label" >
+				<span class="input-label frmLabel">{{'PLACE_OF_RESIDENCE' | translate }}</span>
+			</label>
+		</div>
+
+		<div>
+			<select class="listofselection" ng-change="getStateResidence(countryDataResidence.countryres)" value="{{n.country_id}}" name="countryres" ng-model="countryDataResidence.countryres" ng-options="countryDataResidence.country_id as countryDataResidence.country_name for countryDataResidence in countryDataResidence" required="true">
+			<option value="">-- {{'SELECT_COUNTRY' | translate }} --</option>
+			</select>
+			<div ng-show="add_node_form.$submitted || add_node_form.countryres.$touched">
+				<p ng-show="add_node_form.countryres.$invalid && !add_node_form.countryres.$pristine || add_node_form.countryres.$error.required" class="spValid">{{'REQUIRED' | translate }}
+				</p>	
+			</div>	
+		</div>
+
+
+		<div>
+			<select class="listofselection" ng-change="getCityResidence(stateDataResidence.stateres)" value="{{n.state_id}}" name="stateres" ng-model="stateDataResidence.stateres" ng-options="stateDataResidence.state_id as stateDataResidence.state for stateDataResidence in stateDataResidence" required="true">
+			<option value="">-- {{'SELECT_STATE' | translate }} --</option>
+			</select>
+			<div ng-show="add_node_form.$submitted || add_node_form.stateres.$touched">
+				<p ng-show="add_node_form.stateres.$invalid && !add_node_form.stateres.$pristine ||			add_node_form.stateres.$error.required" class="spValid">{{'REQUIRED' | translate }}
+				</p>	
+			</div>	
+		</div>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CITY TEXTBOX~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<div>
+			<select class="listofselection" ng-change="getCityIDResidence(cityDataResidence.cityres)" value="{{n.city_id}}" name="cityres" ng-model="cityDataResidence.cityres" ng-options="cityDataResidence.city_id as cityDataResidence.city for cityDataResidence in cityDataResidence" required="true">
+			<option value="">-- {{'SELECT_CITY' | translate }} --</option>
+			</select>
+			<div ng-show="add_node_form.$submitted || add_node_form.cityres.$touched">
+				<p ng-show="add_node_form.cityres.$invalid && !add_node_form.cityres.$pristine ||			add_node_form.cityres.$error.required" class="spValid">{{'REQUIRED' | translate }}
+				</p>	
+			</div>
+		</div>
+		<div class="col" ng-if="form_city_res_textview_Enable">
+				<label class="item item-input item-floating-label" >
+					<span class="input-label frmLabel">{{'CITY_NAME' | translate }}</span>
+					<input type="text" name="cityresname" placeholder="{{'CITY_NAME' | translate }}" ng-model="addNodeData.cityresname" ng-required="true">
+					<div ng-show="add_node_form.$submitted || add_node_form.cityresname.$touched">
+					<p ng-show="add_node_form.cityresname.$invalid && !add_node_form.cityresname.$pristine || add_node_form.cityresname.$error.required" class="spValid1">{{'CITY_NAME_REQUIRED' | translate }}</p>
+					</div>
+				</label>
+			</div>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~END  CITY TEXTBOX~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    	<div>
+			<div class="col">
+				<label class="item item-input item-floating-label" >
+					<span class="input-label frmLabel">{{'ADDRESS' | translate }}</span>
+					<input type="text" name="address" placeholder="{{'ADDRESS' | translate }}" ng-model="addNodeData.address">
+					<div ng-show="add_node_form.$submitted || add_node_form.address.$touched">
+						<p ng-show="add_node_form.address.$invalid && !add_node_form.address.$pristine || add_node_form.address.$error.required" class="spValid1">{{'ADDRESS_REQUIRED' | translate }}</p>
+					</div>
+				</label>
+			</div>
+		</div>
+        
+	    <div class="row">
+	    	<label class="item item-input">
+	    		<span style="width: 24%;" class="input-label frmLabel">{{'THIS_PERSON_IS_LIVING' | translate }}</span>
+	    		<ion-radio ng-model="addNodeData.living" name="living" ng-value="'1'"
+	    		checked="1" >{{'YES_CONSTANT' | translate }}</ion-radio>
+	    		<ion-radio ng-model="addNodeData.living" name="living" ng-value="'0'">{{'NO_CONSTANT' | translate }}</ion-radio>
+	    	</label>
+	    </div> 
+
+	     <div ng-show="addNodeData.living == '0'">
+	    	<div class="col">
+	    		<label class="item item-input item-floating-label" >
+	    			<span class="input-label frmLabel">{{'DATE_OF_PASSING_AWAY' | translate }}</span>
+	    			<div ng-change="dateOnChange1()" ion-datetime-picker date ng-model="addNodeData.dateTimeValuePassAway" only-valid="{'before': 'today'}">
+	    				<input type="text" ng-model="addNodeData.DeathDate" 
+	    				placeholder="{{'DATE_OF_PASSING_AWAY' | translate }}" name="DeathDate" value='{{addNodeData.dateTimeValuePassAway| date: "yyyy-MM-dd"}}' id="DeathDate" ng-readonly='true' ng-required="addNodeData.living == '0'">
+	    			</div>		
+	    			<div ng-show="add_node_form.$submitted || add_node_form.DeathDate.$touched">
+	    				<p ng-show="add_node_form.DeathDate.$invalid && !add_node_form.DeathDate.$pristine ||
+	    				add_node_form.DeathDate.$error.required" class="spValid1">{{'DATE_OF_PASSING_AWAY_REQUIRED' | translate }}</p>	
+	    			</div>					
+	    		</label>
+	    	</div>
+    	</div>
+
+    	<div class="row">
+			<label class="item item-input">
+			<span style="width: 22%;" class="input-label frmLabel">{{'GENDER' | translate }}</span>
+			<ion-radio ng-model="addNodeData.gender" name="gender" ng-value="'Male'"
+			checked="true" >{{'MALE' | translate }}</ion-radio>
+	    
+			<ion-radio ng-model="addNodeData.gender" name="gender" ng-value="'Female'">{{'FEMALE' | translate }}</ion-radio>
+			</label>
+		</div>
+
+
+		 <div>
+			<span class="button icon-left ion-camera browse-button frmLabel" ng-click="loadImage()">{{'ADD_IMAGE' | translate }}</span><p>{{image}}</p>
+			<input type="hidden" value="{{pathForImage(image)}}" name="profilepic" ng-model="addNodeData.profilepic"/>
+			<div ng-show="add_node_form.profilepic.$touched" class="spValid">
+				<p ng-show="add_node_form.profilepic.$invalid ||
+				add_node_form.profilepic.$error.required" class="spValid1">
+				{{'PROFILE_PIC_REQUIRED' | translate }}</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="loginPgBtn">
+		<button class="button button-assertive submitBtn">
+			{{'SAVE_BTN' | translate }}
+		</button>
+	</div>
+</form>
+</ion-content>
+</ion-view>

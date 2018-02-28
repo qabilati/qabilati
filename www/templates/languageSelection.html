@@ -1,0 +1,19 @@
+<ion-view class="bg-img" text-center view-title="LANGUAGE SELECTION" class="bg1">
+<ion-content scroll="false">
+<div class="item item-image selectlangbgIcon">
+    <img src="img/logos.png"/>
+</div>
+
+<h2 class="chooselangttl2">Choose your preferred <br />language</h2>
+
+<div class="content-description">
+		<a href="#/login" class="button button-block login-bt"  ng-click="languageSelect('en')">English</a>
+		<a href="#/login" class="button button-block login-bt" ng-click="languageSelect('ar')">العربية</a>
+  	</div>
+
+
+<!-- <ul class="list frmLabel" ng-repeat = "n in languageData">
+    <a href="#/login" class="langList item" ng-click="languageSelect('{{n.language_code}}')">{{n.language_name}}</a>
+</ul> -->
+</ion-content>
+</ion-view>

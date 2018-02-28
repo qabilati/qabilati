@@ -1,0 +1,129 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-assertive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      <!--  <ion-nav-buttons ion-button menuToggle side="right">
+        <a href="#/app/editTreeNode"  class="button" menu-toggle="right"> Edit Tree
+        </a>  
+      </ion-nav-buttons> -->
+    </ion-nav-bar>
+
+    <ion-nav-view name="menuContent"></ion-nav-view></ion-side-menu-content>
+
+<!--<ion-nav-view name="rightContent">
+    </ion-nav-view></ion-side-menu-content> -->
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-assertive1">
+      <h1 class="title"></h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+
+      <ion-item class="leftmenu"  menu-close ng-click="home()">
+        <img class="menu-ico" src="img/home.png" style="width:32px;" />
+        <span class="leftDrawer">{{'HOME' | translate }}</span>
+      </ion-item>
+     <!--  <ion-item menu-close href="#/app/tree">{{'TREE' | translate }}</ion-item> -->
+        <ion-item class="leftmenu" menu-close href="#/app/aboutUs">
+          <img class="menu-ico" src="img/about.png" style="width:32px;" />
+          <span class="leftDrawer">{{'ABOUT_US' | translate }}</span>
+        </ion-item>
+        
+        <ion-item class="leftmenu" menu-close href="#/app/howToUse">
+          <img class="menu-ico" src="img/howtouse.png" style="width:32px;" />
+          <span class="leftDrawer">{{'HOW_TO_USE' | translate }}</span>
+        </ion-item>
+        
+       <!--  <ion-item menu-close href="#/app/familyAdmin">
+          <img class="menu-ico" src="img/family-admin.png" style="width:32px;" />
+          <span class="leftDrawer">{{'FAMILY_ADMIN_SMALL' | translate }}</span>
+        </ion-item> -->
+        
+        <ion-item class="leftmenu" menu-close href="#/app/getInvitePeople">
+          <img class="menu-ico" src="img/invitepeople.png" style="width:32px;" />
+          <span class="leftDrawer">{{'INVITE_PEOPLE' | translate }}</span>
+        </ion-item>
+        
+          <ion-item class="leftmenu" menu-close href="#/app/becomeAdmin/" id="adminResult"  ng-if="isAdminResult">
+          <img class="menu-ico" src="img/became-admin.png" style="width:32px;" />
+            <span class="leftDrawer">{{'BECOME_ADMIN' | translate }}</span>
+          </ion-item>
+
+        <ion-item class="leftmenu" menu-close href="#/app/searchScreen/">
+          <img class="menu-ico" src="img/search.png" style="width:32px;" />
+          <span class="leftDrawer">{{'SEARCH_PERSON' | translate }}</span>
+        </ion-item>
+
+
+        <ion-item class="leftmenu" menu-close href="#/app/notificationScreen/">
+          <!-- <span class="notification-circle">01</span> -->
+              
+            <img class="menu-ico" src="img/notification.png" style="width:32px;" />
+            <span class="leftDrawer">{{'NOTIFICATION_LIST' | translate }}
+               <!-- <button ng-if="hidenoti_count" class="noti_count" id="notification-button" ion-button clear>
+                    <ion-icon name="notifications">
+                      <ion-badge id="notifications-badge" color="danger">{{NotiCount}}</ion-badge>
+                    </ion-icon>              
+               </button> -->
+             
+            </span>
+        </ion-item>
+
+        <ion-item class="leftmenu"  menu-close href="#/app/ancestry">
+        <img class="menu-ico" src="img/geology.png" style="width:32px;" />
+        <span class="leftDrawer">{{'Ancestry_AND_Genealogy' | translate }}</span>
+      </ion-item>
+        
+        <!--<ion-item menu-close href="#/app/verticalTree/">
+          <img class="menu-ico" src="img/view-tree.png" style="width:32px;" />
+          <span class="leftDrawer">{{'VIEW_TREE'| translate}}</span>
+        </ion-item>-->
+        
+       <ion-item class="leftmenu" menu-close href="#/app/changeLanguage">
+          <img class="menu-ico" src="img/language.png" style="width:32px;" />
+          <span class="leftDrawer"> {{'LANGUAGE'| translate}}</span>
+        </ion-item>
+
+        <ion-item class="leftmenu" menu-close href="#/app/contact_admin/">
+          <img class="menu-ico" src="img/contact.png" style="width:32px;" />
+          <span class="leftDrawer">{{'CONTACT_US'| translate}}</span>
+        </ion-item>
+
+       <!-- <ion-item menu-close href="#/app/treeSettings">
+          <img class="menu-ico" src="img/invite-people.png" style="width:32px;" />
+          <span class="leftDrawer">{{'INVITE_PEOPLE' | translate }}</span>
+        </ion-item> -->
+    
+       <!-- <ion-item menu-close ng-click="showSuccessAlertForMergeTree()">
+          <span class="leftDrawer">{{'MERGE_TREE' | translate }}</span>
+        </ion-item>-->
+
+         <!-- <ion-item class="leftmenu" menu-close href="#/launch">
+          <img class="menu-ico" src="img/contact.png" style="width:32px;" />
+          <span class="leftDrawer">Tutorial</span>
+        </ion-item> -->
+        
+        <ion-item class="leftmenu" menu-close ng-click="logout()">
+          <img class="menu-ico" src="img/logout.png" style="width:32px;" />
+          <span class="leftDrawer">{{'LOGOUT' | translate }}</span>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+<!--   <ion-side-menu side="right">
+    <ion-content>
+      <ion-list>
+        <ion-item menu-close href="#/app/editTreeNode">Edit Tree</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu> -->
+
+</ion-side-menus>

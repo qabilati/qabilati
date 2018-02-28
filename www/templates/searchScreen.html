@@ -1,0 +1,37 @@
+<ion-view hide-back-button="true" text-center view-title="{{'SEARCH_PERSON' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+    
+</ion-nav-buttons>
+
+	<ion-content>
+		<form name="search_form" ng-submit="search_form.$valid && doSearch()" novalidate="">
+			<div class="item-input-inset searchTab">
+				<label class="item-input-wrapper"> 
+					<input type="search" placeholder="{{'SEARCH' | translate }}" name="searchTab" ng-model="searchTabData.searchTab" ng-required="true" id="searchTab" value="searchTab">
+				</label>
+
+				<button class="top-search-btn">
+					<i class="icon ion-ios-search placeholder-icon"></i>
+				</button>
+
+				<button class="top-search-btn" ng-click="reload()">
+					<i class="icon ion-ios-reload placeholder-icon"></i>
+				</button>
+			</div>
+		</form>
+
+		<div class="list" ng-if="hidesearh">
+
+			<div class="row family-relation" ng-hide="searchData.length == null || searchData.length == 0"><span class="tts">{{'Search_Result' | translate }}</span></div>
+
+			<a class="item item-thumbnail-left searchlist name-listing" name="userList" ng-model="searchData.userList" ng-repeat="n in searchData" ng-click="searchEdit({{n.nodeID}})">
+				<img class="search-img" src="{{n.photo}}">
+				<h2>{{n.name}}</h2>
+				<p>{{n.birthDate}}</p>
+			</a>
+		</div>
+
+	</ion-content>
+</ion-view>

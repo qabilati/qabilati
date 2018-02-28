@@ -1,0 +1,76 @@
+<ion-view hide-back-button="true" text-center view-title="{{'APP_NAME' | translate }}">
+<!-- view-title="{{'ADD_EVENT' | translate }}" -->
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+	<ion-header-bar class="bar-assertive">
+		<h2 class="header-title">{{'APP_NAME' | translate }}</h2>
+	</ion-header-bar>
+	<ion-content scroll="true">
+
+		<div class="row">
+			<h2 class="signup-sub-title">{{'ADD_EVENT' | translate }}</h2>
+		</div>
+		<form name="addevent_form" ng-submit="doAddEvent()" novalidate=""> 
+		    <div class="list">
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">{{'EVENT_TITLE' | translate }}</span>
+							<input type="text" name="title" placeholder="{{'EVENT_TITLE' | translate }}" ng-model="eventData.title" ng-required="true">
+							<div ng-show="addevent_form.$submitted || addevent_form.title.$touched">
+								 <p ng-show="addevent_form.title.$error.required" class="spValid1">{{'EVENT_TITLE_REQUIRED' | translate }}</p>
+							</div>
+						</label>
+					</div>
+		        </div>
+
+		        <div class="row">
+					<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">{{'EVENT_DESCRIPTION' | translate }}</span>
+							<input type="text" name="description" placeholder="{{'EVENT_DESCRIPTION' | translate }}" ng-model="eventData.description" ng-required="true">
+							<div ng-show="addevent_form.$submitted || addevent_form.description.$touched">
+								<p ng-show="addevent_form.description.$error.required" class="spValid1">{{'EVENT_DESCRIPTION_REQUIRED' | translate }}</p>
+							</div>
+						</label>
+					</div>
+		        </div>
+
+		        <div class="row">
+					<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">{{'EVENT_LOCATION' | translate }}</span>
+							<input type="text" name="location" placeholder="{{'EVENT_LOCATION' | translate }}" ng-model="eventData.location" ng-required="true">
+							<div ng-show="addevent_form.$submitted || addevent_form.location.$touched">
+								<p ng-show="addevent_form.location.$error.required" class="spValid1">{{'EVENT_LOCATION_REQUIRED' | translate }}</p>
+							</div>	
+						</label>
+					</div>
+		        </div>
+
+		        <div class="row">
+		        	<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">{{'EVENT_DATE' | translate }}</span>
+							<div ng-change="dateOnChange()" ion-datetime-picker seconds ng-model="eventData.datetimeValue" only-valid="{'after': 'today'}">
+								<input type="text" ng-model="eventData.stodyDate" placeholder="{{'EVENT_DATE' | translate }}" name="stodyDate" value='{{eventData.datetimeValue | date: "yyyy-MM-dd H:mm:ss"}}' id="stodyDate" ng-readonly='true' ng-required="true"/>
+							</div>
+							<div ng-show="addevent_form.$submitted || addevent_form.stodyDate.$touched">
+								 <p ng-show="addevent_form.stodyDate.$error.required" class="spValid1">{{'EVENT_DATE_REQUIRED' | translate }}</p>
+							</div>	
+						</label>
+					</div>
+				</div>
+		    </div>
+			
+			<div class="loginPgBtn">
+				<button class="button button-assertive submitBtn">
+					{{'ADD_EVENT' | translate }}
+				</button>
+			</div>
+		</form>
+
+	</ion-content>
+</ion-view>	

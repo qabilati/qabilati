@@ -1,0 +1,91 @@
+{
+  "name": "qabilati",
+  "version": "1.1.1",
+  "description": "qabilati: An Ionic project",
+  "dependencies": {
+    "@ionic-native/android-permissions": "^4.3.0",
+    "@ionic-native/email-composer": "^3.6.1",
+    "@ionic/cloud": "^0.16.0",
+    "@ionic/cloud-angular": "^0.12.0",
+    "angucomplete-alt": "^3.0.0",
+    "angular-route": "^1.6.1",
+    "bluebird": "^3.5.0",
+    "card.io.cordova.mobilesdk": "2.1.0",
+    "com.paypal.cordova.mobilesdk": "3.5.0",
+    "cordova-android": "^6.2.3",
+    "cordova-browser": "^4.1.0",
+    "cordova-plugin-actionsheet": "^2.3.3",
+    "cordova-plugin-android-permissions": "^1.0.0",
+    "cordova-plugin-badge": "^0.8.5",
+    "cordova-plugin-camera": "^2.4.1",
+    "cordova-plugin-console": "1.0.5",
+    "cordova-plugin-device": "1.1.4",
+    "cordova-plugin-email": "~1.2.6",
+    "cordova-plugin-file": "^4.3.3",
+    "cordova-plugin-file-transfer": "^1.6.3",
+    "cordova-plugin-filepath": "^1.0.2",
+    "cordova-plugin-inappbrowser": "^1.7.2",
+    "cordova-plugin-inapppurchase": "~1.1.0",
+    "cordova-plugin-splashscreen": "~4.0.1",
+    "cordova-plugin-statusbar": "2.2.1",
+    "cordova-plugin-whitelist": "1.3.1",
+    "cordova-plugin-x-socialsharing": "5.1.8",
+    "gulp": "^3.5.6",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.0.4",
+    "ion-datetime-picker": "^0.5.2",
+    "ionic-datepicker": "^1.2.1",
+    "ionic-gallery-modal": "0.0.9",
+    "ionic-plugin-keyboard": "~2.2.1",
+    "ng-translate": "^1.0.3",
+    "ng2-translate": "^5.0.0",
+    "phonegap-plugin-push": "~1.10.3",
+    "react-picker": "^1.2.9"
+  },
+  "devDependencies": {
+    "bower": "^1.3.3",
+    "gulp-util": "^2.2.14",
+    "shelljs": "^0.3.0"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-console",
+    "cordova-plugin-device",
+    "cordova-plugin-splashscreen",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": [],
+  "cordova": {
+    "platforms": [
+      "browser",
+      "android"
+    ],
+    "plugins": {
+      "card.io.cordova.mobilesdk": {},
+      "com.paypal.cordova.mobilesdk": {},
+      "cordova-plugin-actionsheet": {},
+      "cordova-plugin-camera": {},
+      "cordova-plugin-console": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-email": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-filepath": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-x-socialsharing": {},
+      "ionic-plugin-keyboard": {},
+      "phonegap-plugin-push": {
+        "SENDER_ID": "837401437916"
+      },
+      "cordova-plugin-inapppurchase": {},
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-badge": {}
+    }
+  }
+}

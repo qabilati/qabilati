@@ -1,0 +1,208 @@
+    <ion-view hide-back-button="true" view-title="{{'APP_NAME' | translate }}">
+
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+
+<ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-android-more-vertical rightbtn" ng-click="popover.show($event)"></button>
+</ion-nav-buttons>
+
+  <ion-content class="scroll-content ionic-scroll">
+
+    <div class="userProfileImg">
+      <div align="text-center">
+          <img src="{{userPhoto}}"/>
+          <p class="nodeName">{{userName}}</p>
+      </div>
+    </div>
+
+    <ul class="row text-center ptab">
+      <li class="col col-25 tabsalign">
+          <a href="javascript:void(0);" ng-click="activeTab = 'a'" class="tabs-contents">
+            {{'LIFE_STORY' | translate }}
+            </a>
+      </li>
+      <li class="col col-25 tabsalign">
+          <a href="javascript:void(0); " ng-click="activeTab = 'b' " class="tabs-contents">
+            {{'FAMILY' | translate }} 
+         </a>
+      </li>
+      <li class="col col-25 tabsalign">
+          <a href="javascript:void(0);" ng-click="activeTab = 'c' " class="tabs-contents">
+            {{'GALLERY' | translate }} 
+          </a>
+      </li>
+      <li class="col col-25 tabsalign">
+          <a href="javascript:void(0);" ng-click="activeTab = 'd' " class="tabs-contents">
+            {{'EVENTS' | translate }} 
+          </a>
+      </li>
+    </ul>
+
+  <!-- Life Story  -->
+  <div class="a" ng-show="activeTab == 'a'">
+    <div >
+      <ul class="timeline" ng-repeat="n in storyData">
+          <li>
+            <div class="timeline-thumb bg-color-blue timeline-icon">
+              <i class="ion-heart"></i>
+            </div>
+            <div class="row">
+              <div class="col ">
+                <div class="timeline-item">
+                <div class="row">
+                <div class="col col-80">
+                  <h4>{{n.title}}</h4>
+                  <p>{{n.description}}</p>
+                  <div class="timeline-stats">
+                    <i class="ion-ios-calendar-outline"></i> {{n.stodyDate}}
+                  </div>
+                </div>
+                <div class="col col-20">
+                    <span class="share-icon-alt share_edit_icon" ng-click="shareAnywhereStory(n.title,n.description,n.stodyDateOG,n.lsID)"><i class="ion-android-share-alt"></i></span>
+                     <span class="share-icon-alt share_edit_icon" ng-click="editStory(n.lsID,n.title,n.description,n.location,n.stodyDateOG,n.nodeID_fk)"><i class="ion-edit"></i></span>
+                </div>
+                </div>  
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p ng-hide="storyData.length" class="emptymsg">{{'NO_LIFE_STORY_FOUND' | translate }}</p>
+    </div>
+  </div>
+
+  <!-- Family Members -->
+  <div class="b" ng-show="activeTab == 'b'" >
+    <div>
+      <div class="row family-relation" ng-hide="parentData.length == null || parentData.length == 0"><span class="ttl">{{'PARENTS' | translate }}</span></div>
+      <div ng-repeat = "data in parentData">
+        <div class="row family-info">
+       <!-- <img src="{{profileImgURL}}{{data.photo}}" onerror="this.src='../img/child.png'" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>-->
+          <img src="{{data.photo}}" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>
+          <!--<img src="img/child.png" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>-->
+          <div class="col col-60" ng-click="getUserProfile({{data.nodeID}})">
+            <p class="col name" ng-click="getUserProfile({{data.nodeID}})"> {{data.Name}}</p>
+            <p class="col dates" ng-click="getUserProfile({{data.nodeID}})"> {{data.birthDate}}</p>
+          </div>
+          <div class="col col-15 text-center">
+            <span class="share-icon-alt shareIconRealtion" ng-click="shareRelation(data.Name,data.relation)"><i class="ion-android-share-alt"></i>
+            </span>
+          </div> 
+        </div>  
+      </div>
+    </div>
+
+    <div>
+      <div class="row family-relation" ng-hide="spouseData.length == null || spouseData.length == 0"><span class="ttl">{{'SPOUSE' | translate }}</span></div>
+      <div ng-repeat = "data in spouseData">
+        <div class="row family-info">
+       <!-- <img src="{{profileImgURL}}{{data.photo}}" onerror="this.src='../img/child.png'" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>-->
+          <img src="{{data.photo}}" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>
+          <!--<img src="img/child.png" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>-->
+          <div class="col col-60" ng-click="getUserProfile({{data.nodeID}})">
+            <p class="col name" ng-click="getUserProfile({{data.nodeID}})"> {{data.Name}}</p>
+            <p class="col dates" ng-click="getUserProfile({{data.nodeID}})"> {{data.birthDate}}</p>
+          </div>
+          <div class="col col-15 text-center">
+            <span class="share-icon-alt shareIconRealtion" ng-click="shareRelation(data.Name,data.relation)"><i class="ion-android-share-alt"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="row family-relation" ng-hide="siblingData.length == null || siblingData.length == 0"><span class="ttl">{{'SIBLING' | translate }}</span></div>
+      <div ng-repeat = "data in siblingData">
+        <div class="row family-info">
+        	<!--<img src="{{profileImgURL}}{{data.photo}}" onerror="this.src='../img/child.png'" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>-->
+          <img src="{{data.photo}}" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>
+          <!--<img src="img/child.png" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>-->
+          <div class="col col-60" ng-click="getUserProfile({{data.nodeID}})">
+            <p class="col name" ng-click="getUserProfile({{data.nodeID}})"> {{data.Name}}</p>
+            <p class="col dates" ng-click="getUserProfile({{data.nodeID}})"> {{data.birthDate}}</p>
+          </div>
+          <div class="col col-15 text-center">
+            <span class="share-icon-alt shareIconRealtion" ng-click="shareRelation(data.Name,data.relation)"><i class="ion-android-share-alt"></i>
+            </span>
+          </div>
+        </div> 
+      </div>
+    </div>
+
+    <div>
+      <div class="row family-relation" ng-hide="childData.length == null || childData.length == 0"><span class="ttl">{{'CHILD' | translate }}</span></div>
+      <div ng-repeat = "data in childData">
+        <div class="row family-info">
+        <!--<img src="{{profileImgURL}}{{data.photo}}" onerror="this.src='../img/child.png'" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>-->
+          <!--<img ng-if="data.photo != '' " src="{{profileImgURL}}{{data.photo}}" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>
+          <img ng-if="data.photo == '' " src="img/child.png" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>-->       
+          <!--<img ng-if="data.photo != '' " src="{{profileImgURL}}{{data.photo}}" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>-->
+          <img src="{{data.photo}}" class="family-member-img col-25" ng-click="getUserProfile({{data.nodeID}})"/>
+          <div class="col col-60" ng-click="getUserProfile({{data.nodeID}})">
+            <p class="col name" ng-click="getUserProfile({{data.nodeID}})"> {{data.Name}}</p>
+            <p class="col dates" ng-click="getUserProfile({{data.nodeID}})"> {{data.birthDate}}</p>
+          </div>
+          <div class="col col-15 text-center">
+            <span class="share-icon-alt shareIconRealtion" ng-click="shareRelation(data.Name,data.relation)"><i class="ion-android-share-alt"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p ng-hide="childData.length || spouseData.length || siblingData.length || parentData.length" class="emptymsg">{{'NO_FAMILY_FOUND' | translate }}</p> 
+  </div>
+
+  <!-- <div class="clearfix"></div> -->
+  <!-- Gallery -->
+  <div class="c" ng-show="activeTab == 'c'">
+      <div class="row gallery">
+        <div class="col col-50" ng-repeat="n in galleryData">
+            <img src="{{n.photo}}" ng-click="editPhoto(n.galleryID,n.title,n.description,n.photoDate,n.photo,n.location,n.nodeID_fk)">
+        </div>
+      </div>
+      <p ng-hide="galleryData.length" class="gallery-empty emptymsg">{{'NO_GALLERY_FOUND' | translate }}</p>
+    </div>
+
+  <!-- Event Data -->
+    <div class="d" ng-show="activeTab == 'd'" >
+      <div class="card" ng-repeat="n in eventData">
+        <div class="item item-text-wrap">
+          <div class="row">
+            <div class="col col-80">
+              <i class="ion-ios-calendar-outline event-title" style="word-spacing: 8px;">  {{n.eventTitle}}</i>
+              <p class="event-description">{{n.eventDescription}}</p>
+              <span class="event-datetime">{{n.location}}  {{n.eventDate}} {{n.eventTime}}</span>
+            </div>
+            <div class="col col-20">
+              <span class="share-icon-alt share_edit_icon" ng-click="shareAnywhereEvent(n.eventTitle,n.eventDescription,n.location,n.eventDateTime,n.eventID)"><i class="ion-android-share-alt"></i></span>
+              <span class="share-icon-alt share_edit_icon" ng-click="editEvent(n.eventID,n.eventTitle,n.eventDescription,n.location,n.eventDateTime,n.nodeID_fk)">
+                <i class="ion-edit"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p ng-hide="eventData.length" class="emptymsg">{{'NO_EVENTS_FOUND' | translate }}</p>
+    </div>
+  </ion-content>
+
+  <div class="floatbtn">
+    <ion-floating-menu button-class="circle-btn" menu-color="#911742" menu-open-color="#911742" backdrop="true">
+      <ion-floating-item button-class="circle-btn" click="addEvent(nodeID)" icon="ion-ios-compose" text="{{'ADD_EVENT' | translate }}"></ion-floating-item>
+
+      <ion-floating-item button-class="circle-btn" click="addPhoto(nodeID)" icon="ion-camera" text="{{'ADD_PHOTO' | translate }}"></ion-floating-item>
+
+      <ion-floating-item button-class="circle-btn" click="addFamilyMember(nodeID)" icon="ion-person-add" text="{{'ADD_MEMBER' | translate }}"></ion-floating-item>
+
+      <ion-floating-item button-class="circle-btn" click="addLifeStory(nodeID)" icon="ion-ios-book" text="{{'ADD_STORY' | translate }}"></ion-floating-item>
+
+      <ion-floating-item button-class="circle-btn" click="getContactDetails(nodeID)" icon="ion-android-contact" text="{{'CONTACT_DETAILS' | translate }}"></ion-floating-item>
+              
+      <ion-floating-item  button-class="circle-btn" ng-if="false" icon="ion-person" text="Person" click="myEvent()"></ion-floating-item>
+    </ion-floating-menu>
+  </div>
+
+</ion-view>

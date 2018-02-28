@@ -1,0 +1,19 @@
+<ion-view hide-back-button="true" text-center view-title="{{'SIGN_UP_TEXT' | translate }}">
+<ion-header-bar class="bar-assertive"><h2 class="header-title">{{'APP_NAME' | translate }}</h2></ion-header-bar>
+<ion-content scroll="true">
+<div class="item item-image bgIcon">
+	<img src="img/bg_icon.png"/>
+</div>
+
+<div class="row">
+		<h2 class="sub-title">{{'SIGN_UP_TO_QABILATI' | translate }}</h2>
+	</div>
+	
+	<div class="loginPgRow socialLogins">
+	<a href="#/signup"><img src="img/email.png" class="loginImg"/></a>
+		<img src="img/facebook.png" class="loginImg" ng-click="LoginwithFacebook('facebook')"/>
+		<img src="img/twitter.png" class="loginImg" ng-click="LoginwithTwitter('twitter')"/>
+		<img src="img/instagram.png" class="loginImg" ng-click="LoginwithInstagram('instagram')"/>
+	</div>
+</ion-content>
+</ion-view>

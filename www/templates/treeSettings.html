@@ -1,0 +1,68 @@
+<ion-view hide-back-button="true" view-title="{{'APP_NAME' | translate }}">
+">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+
+  <ion-content class="scroll-content ionic-scroll">
+
+    <form name="treeInvites_form"  ng-submit="doTree()" novalidate=""> 
+      <div class="list">
+
+        <div class="col">
+          <label class="item item-input item-floating-label" >
+            <span class="input-label frmLabel">{{'FIRST_NAME' | translate }}</span>
+            <input type="text" name="firstname" placeholder="{{'FIRST_NAME' | translate }}" ng-model="treeData.firstname" ng-required="true">
+            <div ng-show="treeInvites_form.$submitted || treeInvites_form.firstname.$touched">
+              <p ng-show="treeInvites_form.firstname.$invalid && !treeInvites_form.firstname.$pristine || treeInvites_form.firstname.$error.required" class="spValid1">{{'FIRST_NAME_REQUIRED' | translate }}</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="col">    
+          <label class="item item-input item-floating-label" >
+            <span class="input-label frmLabel">{{'LAST_NAME' | translate }}</span>
+            <input type="text" name="lastname" placeholder="{{'LAST_NAME' | translate }}" ng-model="treeData.lastname" ng-required="true">
+            <div ng-show="treeInvites_form.$submitted || treeInvites_form.lastname.$touched">
+              <p ng-show="treeInvites_form.lastname.$invalid && !treeInvites_form.lastname.$pristine || treeInvites_form.lastname.$error.required" class="spValid1">{{'LAST_NAME_REQUIRED' | translate }}</p>
+            </div>
+          </label>  
+        </div>  
+
+        <div class="col">
+          <label class="item item-input item-floating-label" >
+            <span class="input-label frmLabel">{{'EMAIL' | translate }}</span>
+            <input type="email" name="email" placeholder="{{'EMAIL' | translate }}" ng-model="treeData.email" ng-required="true">
+            <div ng-show="treeInvites_form.$submitted || treeInvites_form.email.$touched">
+              <p ng-show="treeInvites_form.email.$invalid && !treeInvites_form.email.$pristine ||
+              treeInvites_form.email.$error.required" class="spValid1">{{'ENTER_CORRECT_EMAIL' | translate }}</p>
+            </div>
+          </label>
+        </div>
+      </div>
+    
+
+
+  <div class="loginPgBtn">
+    <button class="button button-assertive submitBtn">
+      {{'INVITE_PEOPLE' | translate }}
+    </button>
+  </div>
+  </form>
+<!--   <div class="tabs-striped tabs-top">
+    <div class="tabs ">
+      <a class="tab-item active">
+        View Tree
+      </a>
+      <a class="tab-item">
+        Manage Invites
+      </a>
+      <a class="tab-item">
+        Invite People
+      </a>
+	 </div>
+  </div> -->
+ 
+  </ion-content>
+</ion-view>

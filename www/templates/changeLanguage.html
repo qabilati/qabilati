@@ -1,0 +1,17 @@
+<ion-view hide-back-button="true" text-center view-title="{{'APP_NAME' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+<ion-header-bar class="bar-assertive">
+<h2 class="header-title">{{'APP_NAME' | translate }}</h2>
+</ion-header-bar>
+
+  <ion-content scroll="true" class="text-capitalize holder">
+  		<h2 class="chooselangttl">{{'LANGUAGE_SELECTION' | translate }}</h2>
+  	<div class="content-description">
+		<a class="button button-block chngeLangbtn"  ng-click="ChangeLanguage('en','English')" ng-class="{ 'active': userSelLang === 'English' }">English</a>
+		<a class="button button-block chngeLangbtn2"  ng-click="ChangeLanguage('ar','Arabic')" ng-class="{ 'active': userSelLang === 'Arabic' }">العربية</a>
+  	</div>
+  </ion-content>
+</ion-view>

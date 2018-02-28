@@ -1,0 +1,30 @@
+<ion-view hide-back-button="true" title="{{'APP_NAME' | translate }}">
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+<!-- 		<div class="row">
+			<h2 class="add_node">{{'INVITE_PEOPLE' | translate }}</h2>
+		</div> -->
+
+	<ion-content >
+    <div class="getInvitebtn">
+    	<button class="button button-assertive submitBtn" ng-click="inviteform()">{{'INVITE_PEOPLE' | translate }}</button>
+  	</div>
+    
+	<div class="tableborder">
+	<div class="row tableheader bar-assertive">
+		<div class="col col-50 getInvitePeople">{{'EMAIL' | translate }}</div>
+		<div class="col col-50 getInvitePeople">{{'NAME' | translate }}</div>
+	</div>
+	
+		<div class="list searchlist" name="inviteList" ng-model="getInviteData.inviteList" ng-repeat="n in getInviteData">
+		<div class="row">
+			<!-- <a class="item item-inset searchlist" name="inviteList" ng-model="getInviteData.inviteList" ng-repeat="n in getInviteData"> -->
+			<div class="col col-50">{{n.email}}</div>
+			<div class="col col-40 getInvitePeople">{{n.firstname}} {{n.lastname}}</div>
+		</div>
+		</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,58 @@
+<ion-view hide-back-button="true" text-center view-title="{{'APP_NAME' | translate }}">
+<!-- view-title="{{'ADD_EVENT' | translate }}" -->
+<ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+</ion-nav-buttons>
+	<ion-header-bar class="bar-assertive">
+		<h2 class="header-title">{{'APP_NAME' | translate }}</h2>
+	</ion-header-bar>
+	<ion-content scroll="true">
+
+		<div class="row">
+			<h2 class="signup-sub-title">Credit/Debit Card</h2>
+		</div>
+		<form name="addevent_form" ng-submit="checkout()" novalidate=""> 
+		    <div class="list">
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">Credit/Debit Card Number</span>
+							<input type="text" maxlength="16" name="title" placeholder="Credit/Debit Card Number" ng-model="cardData.number" ng-required="true">
+						</label>
+					</div>
+		        </div>
+
+		        <div class="row">
+					<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">Expiration Date</span>
+							  	<div class="col">
+							  		<input type="text" name="month" maxlength="2" placeholder="Month" ng-model="cardData.month" ng-required="true">
+							  	</div>
+  								<div class="col">
+  									<input type="text" maxlength="4" name="year" placeholder="Year" ng-model="cardData.year" ng-required="true">
+  								</div>
+						</label>
+					</div>
+		        </div>
+
+		        <div class="row">
+					<div class="col">
+						<label class="item item-input item-floating-label" >
+							<span class="input-label frmLabel">CVV Code</span>
+							<input type="text" maxlength="3" name="title" placeholder="CVV Code" ng-model="cardData.cvv" ng-required="true">
+						</label>
+					</div>
+		        </div>
+		    </div>
+			
+			<div class="loginPgBtn">
+				<button class="button button-assertive submitBtn">
+					PAY
+				</button>
+			</div>
+		</form>
+
+	</ion-content>
+</ion-view>	
