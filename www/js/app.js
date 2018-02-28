@@ -4,6 +4,10 @@ angular.module('starter', ['ionic', 'starter.controllers','checklogin','checksig
 
     .run(function($ionicPlatform,$localstorage,$translate,$rootScope,$state,$login,$rootScope,$cordovaLocalNotification,$window,$cordovaPush,$ionicPopup,$ionicHistory,$commonFactory) {
 
+        Pro.init('c955ce9d', {
+            appVersion: '1.1.1'
+        });
+
         $ionicPlatform.ready(function() {
 
             var webserviceURL = 'http://qabilati.com/ws.php';
@@ -116,7 +120,7 @@ angular.module('starter', ['ionic', 'starter.controllers','checklogin','checksig
   
     $ionicCloudProvider.init({
         "core": {
-          "app_id": "26785339"
+          "app_id": "c955ce9d"
         },
         "push": {
               "sender_id": "837401437916",
